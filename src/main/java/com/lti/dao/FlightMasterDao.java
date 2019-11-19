@@ -1,0 +1,18 @@
+package com.lti.dao;
+
+
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.List;
+
+import com.lti.model.FlightMaster;
+import com.lti.model.LocationMaster;
+
+public interface FlightMasterDao {
+
+	public boolean newFlight(FlightMaster flightMaster);
+	public List<FlightMaster> searchFlight(LocationMaster locationMaster,LocationMaster locationMaster2,Date travelDate);
+	public boolean updateRemainingSeats(FlightMaster flightMaster);
+	public List<FlightMaster> getAll();
+	public FlightMaster getFlight(int flightId);
+}
