@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.lti.model.LocationMaster;
 import com.lti.model.Person;
 import com.lti.service.PersonService;
+import com.lti.service.PersonServiceImplementation;
 
 @Controller
 public class PersonController {
@@ -23,27 +25,32 @@ public class PersonController {
 @Resource(name="pservice")
 private PersonService pservice;
 
-@RequestMapping(path="/checkLogin")
+
+
+@RequestMapping("/checkLogin")
 public ModelAndView checkLogin(HttpServletRequest req,HttpServletResponse res)
 {
-	String email=req.getParameter("email");
+	String emailId=req.getParameter("email");
 	String password=req.getParameter("password");
 	
-	Boolean isUser=pservice.checkLogin(email, password);
+	System.out.println(password);
+	
+	Boolean isUser=pservice.checkLogin(emailId, password);
 	if(isUser)
 	{
 //		String fname;
 //		List<Person> list=new ArrayList<Person>();
 //		list=pservice.getPerson(email).get
 //		String fname=pservice
-		req.getSession().setAttribute("email", email);
+		req.getSession().setAttribute("email", emailId);
 		System.out.println("Session Saved..");
-		return new ModelAndView("homepage","message","Log in Success!!");
+		String message1="Log in Success!!!";
+		return new ModelAndView("homepage","message",message1);
 	}
 	else
 	{
 		String message="please enter correct credentials";
-		return new ModelAndView("unsuccesfulLogin","message",message);
+		return new ModelAndView("unsuccessfulLogin","message",message);
 	}
 }
 

@@ -7,6 +7,6 @@
 <title>HomePage</title>
 </head>
 <body>
-<h1>Login Succcesfull</h1>
+${message1}
 </body>
 </html>

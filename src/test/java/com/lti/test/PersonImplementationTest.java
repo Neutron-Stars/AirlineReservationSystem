@@ -76,7 +76,6 @@ public class PersonImplementationTest {
 	public void testGetUser()
 	{	   List<Person> ca=new ArrayList<Person>(); 
 	ca=pDao.getUser("pqr@gmail.com");
-	
 	for(Person per:ca)
 	{
 		System.out.println(per.getfName()+" "+per.getGender()+" "+per.getMobileNumber());

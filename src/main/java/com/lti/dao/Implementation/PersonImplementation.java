@@ -104,7 +104,26 @@ public class PersonImplementation implements PersonDao  {
 		} catch (RuntimeException e) {
 			return false;
 		}
+		
+		
 	
+	}
+	
+	public boolean checkLogin(String email,String password)
+	{
+		boolean userFound=false;
+		String query="select o from Person as o where o.email=:mai and o.password=:pas";
+		Query q1=entityManager.createQuery(query);
+		q1.setParameter("mai", email);
+		q1.setParameter("pas", password);
+		List list=q1.getResultList();
+
+		if((list!=null)&&(list.size()>0))
+		{
+			userFound=true;
+		}
+		
+		return userFound;
 	}
 	
 

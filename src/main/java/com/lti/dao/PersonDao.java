@@ -13,4 +13,6 @@ public interface PersonDao {
 	public boolean modifyPerson(Person person);
 	public List<Person> getUser(String email);
 	public boolean deletePerson(String email);
+
+	public boolean checkLogin(String email,String password);
 }
