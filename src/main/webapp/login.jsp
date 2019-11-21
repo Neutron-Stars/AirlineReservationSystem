@@ -14,5 +14,7 @@ Password:<input type="password" name="password"/><br/>
 <input type="submit" value="login"/>  
 </form> 
 
+For admin Login click here<a href="adminLogin.jsp">AdminLogin</a>
+
 </body>
 </html>

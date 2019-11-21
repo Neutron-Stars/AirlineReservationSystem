@@ -6,6 +6,8 @@ import com.lti.model.Person;
 
 public interface PersonService {
 
-	public boolean checkLogin(String email,String password);
-	public List<Person> getPerson(String email);
+	public Person checkLogin(String email,String password);
+	
+	public boolean checkAdmin(String name,String password);
+	public Person getPerson(String email);
 }

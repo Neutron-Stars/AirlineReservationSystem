@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lti.dao.AdminDao;
 import com.lti.dao.PersonDao;
 import com.lti.dao.Implementation.PersonImplementation;
 import com.lti.model.Person;
@@ -25,21 +26,30 @@ public class PersonServiceImplementation implements PersonService {
 	@Autowired
 	private PersonDao pdao;
 	
+	@Autowired
+	private AdminDao adao;
+	
 	public void setLoginDao(PersonDao pdao)
 	{
 		this.pdao=pdao;
 	}
 	
 
-	public boolean checkLogin(String email,String password)
+	public Person checkLogin(String email,String password)
 	{
 		System.out.println("In service Class...Check Login");
 		return pdao.checkLogin(email, password);
 	}
 	
-	public List<Person> getPerson(String email)
+	public Person getPerson(String email)
 	{
 		
 		return pdao.getUser(email);
+	}
+	
+	public boolean checkAdmin(String name,String password)
+	{
+		System.out.println("You are in Service Class...checking Login!!!");
+		return adao.checkAdmin(name, password);
 	}
 }

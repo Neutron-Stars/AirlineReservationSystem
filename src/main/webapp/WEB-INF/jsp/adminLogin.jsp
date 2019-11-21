@@ -4,15 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login Page</title>
+<title>adminLoginPage</title>
 </head>
 <body>
-<form method="post" action="/checkLogin">
-Enter email:<input type="text" name="email"/></br>
-Enter Password:<input type="password" name="password"/></br>
-<button type="submit" ></button>
+<form method="post" action="checkAdmin">
+username:<input type="text" name="adminName"/>
+password:<input type="password" name="adminPassword" required/>
+<input type="submit" value="login"/>
 </form>
-
-For admin Login click here<a href="adminLogin">AdminLogin</a>
 </body>
 </html>

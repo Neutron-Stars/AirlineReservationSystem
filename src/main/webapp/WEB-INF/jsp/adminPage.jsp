@@ -4,15 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login Page</title>
+<title>adminPage</title>
 </head>
 <body>
-<form method="post" action="/checkLogin">
-Enter email:<input type="text" name="email"/></br>
-Enter Password:<input type="password" name="password"/></br>
-<button type="submit" ></button>
-</form>
+<h1>This is admin page</h1>
+<h2>${message}</h2>
+Which task to be done,<a href="adminTask.jsp"> Please select</a>
 
-For admin Login click here<a href="adminLogin">AdminLogin</a>
 </body>
 </html>

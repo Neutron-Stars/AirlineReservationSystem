@@ -7,6 +7,7 @@
 <title>HomePage</title>
 </head>
 <body>
-${message1}
+Welcome back ${ sessionScope.person.fName }
+<h1>${message}</h1>
 </body>
 </html>

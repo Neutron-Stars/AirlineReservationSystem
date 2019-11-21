@@ -1,19 +1,11 @@
 package com.lti.dao.Implementation;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-
 
 import com.lti.dao.PersonDao;
 import com.lti.model.Person;
@@ -62,28 +54,14 @@ public class PersonImplementation implements PersonDao  {
 	}
 
 	@Transactional	
-	public List<Person > getUser(String emailAddress) {
-	
-		
-		Person person = new Person();
-		try {
-			
+	public Person getUser(String emailAddress) {
 			String q="select a from Person as a where a.email=:mail";
 			Query q1=entityManager.createQuery(q);
 			q1.setParameter("mail", emailAddress);
 //			List<User>list= q1.getResultList();
-			List<Person> list=q1.getResultList();
-			return list;
-			
-		
-		} 
-		catch (RuntimeException e)
-		{
-			e.printStackTrace();
-			return null;
-		}
-		
-		
+			Person p=(Person) q1.getSingleResult();
+			return p;
+	
 	}
 
 	@Transactional
@@ -109,21 +87,14 @@ public class PersonImplementation implements PersonDao  {
 	
 	}
 	
-	public boolean checkLogin(String email,String password)
+	public Person checkLogin(String email,String password)
 	{
-		boolean userFound=false;
 		String query="select o from Person as o where o.email=:mai and o.password=:pas";
 		Query q1=entityManager.createQuery(query);
 		q1.setParameter("mai", email);
 		q1.setParameter("pas", password);
-		List list=q1.getResultList();
-
-		if((list!=null)&&(list.size()>0))
-		{
-			userFound=true;
-		}
-		
-		return userFound;
+		Person p = (Person) q1.getSingleResult();
+		return p;
 	}
 	
 
