@@ -1,0 +1,190 @@
+@charset "ISO-8859-1";
+body{
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    text-decoration:white;
+}
+ .container{
+    height:100%;
+    width:100%;
+    background-image: url("img9.jpg");
+    background-size: cover;
+    position: absolute;
+    color: white;
+    
+ }
+.login-box{
+    height:100%;
+    width:100%;
+    background-image: url("img5.jpg");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    color: white;
+}
+.rembr-pass{
+    float:right;
+}
+.inner-login-box{
+    width:380px;
+    height:480px;
+    position:relative;
+    margin: 6% auto;
+    background: black;
+    border-radius:20px;
+    color:white;
+    padding:5px;
+    opacity: 0.5;
+    filter: alpha(opacity=50); 
+    overflow: hidden;
+}
+.button-box{
+    width:220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow:0 0 20px 9px rgb(50, 50, 83);
+    border-radius: 30px;
+}
+#btn{
+    top:0;
+    left: 0;
+    position: relative;
+    width:110px;
+    height:100%;
+    background: linear-gradient(to right, white,#03a9f4);
+    border-radius: 30px;
+    transition: 0.5s;
+}
+.toggle-button{
+    padding: 10px 30px;
+    cursor:pointer;
+    background:transparent;
+    color: white;
+    border:0;
+    outline:none;
+    position:relative;
+    transition-duration: 0.4s;
+}
+
+.btn-full{
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.Gradbtn{
+    padding: 10px 30px;
+    cursor:pointer;
+    border: 5;
+    background: linear-gradient(to right, #353db1 0%, #fff 100%);
+    border-radius: 20px;
+    color: #fff;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+}
+
+.Gradbtn:active {
+	background: linear-gradient(to left,rgb(20, 201, 35) 0%,rgb(20, 201, 35) 100%);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+.Gradbtn:default {
+	background: linear-gradient(to left,rgb(20, 201, 35) 0%,rgb(20, 201, 35) 100%);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.input-group{
+    top: 150px;
+    padding: 0 30px;
+    position: absolute;
+    width:280px;
+    transition: .5s;
+}
+a{
+    font-size: 14px;
+    color: white;
+    position:relative;
+    top: 5px;
+    right: 157px;
+}
+a:hover{
+    color: blue;
+    font-weight: bolder;
+}
+.input-field{
+    width:100%;
+    padding:10px 0;
+    margin: 10px 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid white;
+    background: transparent;
+    text-decoration: white;
+}
+
+.btn-submit{
+    width:85%;
+    padding: 10px 20px;
+    cursor:pointer;
+    display: block;
+    margin: 40px;
+    background:#03a9f4;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+.check-box{
+    margin: 10px 10px 10px 15px;
+    position:relative;
+    right:150px;
+}
+span{
+    color:white;
+    font-size: 14px;
+    bottom: 125px;
+    position: absolute;
+    left:45px;
+}
+#login{
+   left:0px;
+}
+#register{
+    left: 450px;
+    top: 100px;
+}
+
+input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s; 
+}
+input:focus ~ label,
+input:valid ~ label {
+    top: -20px;
+    left: 20px;
+    color: #03a9f4;
+    font-size: 12px;
+}
+
