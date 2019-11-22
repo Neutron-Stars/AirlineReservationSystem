@@ -35,7 +35,7 @@ public class LocationMasterImplementation implements LocationMasterDao {
 		try
 		{
 			System.out.println("Session Hit 2 !!!");
-			entitymanager.persist(locationMaster1);
+			entitymanager.merge(locationMaster1);
 			return true;
 		}
 		

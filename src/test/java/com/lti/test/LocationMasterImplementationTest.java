@@ -27,7 +27,7 @@ private static ApplicationContext ctx;
 	public void test() {
 		
 		LocationMaster locationMaster=new LocationMaster();
-		locationMaster.setLocationMasterId(1250);
+		locationMaster.setLocationMasterId(1243);
 		locationMaster.setName("Delhi");
 		locationMaster.setCode("In");
 		locationMaster.setCountry("India");

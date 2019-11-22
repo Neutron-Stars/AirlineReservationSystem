@@ -4,13 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>adminPage</title>
+<title>Failure Page</title>
 </head>
 <body>
-<h1>This is admin page</h1>
-<h2>${message}</h2>
-Welocme back ${sessionScope.admin.adminName }
-Which task to be done,<a href="adminTask.jsp"> Please select</a>
-
+<h1>${message}</h1>
 </body>
 </html>

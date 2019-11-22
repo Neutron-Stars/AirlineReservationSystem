@@ -7,6 +7,8 @@
 <title>adminTask</title>
 </head>
 <body>
-<h1>Select here</h1>
+<h1>List of Tasks</h1>
+<a href="addLocation.jsp">addLocationDetails</a>
+<a href="addFlight.jsp">addFlight</a>
 </body>
 </html>

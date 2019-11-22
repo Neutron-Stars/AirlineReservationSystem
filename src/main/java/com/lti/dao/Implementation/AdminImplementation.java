@@ -36,21 +36,14 @@ public class AdminImplementation implements AdminDao {
 	}
 	
 	
-	public boolean checkAdmin(String name,String password)
+	public Admin checkAdmin(String name,String password)
 	{
 		boolean userFound=false;
 		String query="select o from Admin as o where o.adminName=:mai and o.adminPassword=:pas";
 		Query q1=em.createQuery(query);
 		q1.setParameter("mai", name);
 		q1.setParameter("pas", password);
-		List list=q1.getResultList();
-
-		if((list!=null)&&(list.size()>0))
-		{
-			System.out.println(list.size());
-			userFound=true;
-		}
-		
-		return userFound;
+		Admin ad=(Admin)q1.getSingleResult();
+		return ad;
 	}
 }

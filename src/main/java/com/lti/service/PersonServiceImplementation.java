@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.lti.dao.AdminDao;
 import com.lti.dao.PersonDao;
 import com.lti.dao.Implementation.PersonImplementation;
+import com.lti.model.Admin;
 import com.lti.model.Person;
 
 @Service("pservice")
@@ -47,7 +48,7 @@ public class PersonServiceImplementation implements PersonService {
 		return pdao.getUser(email);
 	}
 	
-	public boolean checkAdmin(String name,String password)
+	public Admin checkAdmin(String name,String password)
 	{
 		System.out.println("You are in Service Class...checking Login!!!");
 		return adao.checkAdmin(name, password);

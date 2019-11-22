@@ -37,12 +37,12 @@ public class LocationMaster implements Serializable  {
 	private String name;
 
 	//bi-directional many-to-one association to FlightMaster
-	@OneToMany(mappedBy="locationMaster1")
+/*	@OneToMany(mappedBy="locationMaster1")
 	private List<FlightMaster> flightMasters1;
 
 	//bi-directional many-to-one association to FlightMaster
 	@OneToMany(mappedBy="locationMaster2")
-	private List<FlightMaster> flightMasters2;
+	private List<FlightMaster> flightMasters2;*/
 
 	@Autowired
 	public LocationMaster() {
@@ -89,7 +89,7 @@ public class LocationMaster implements Serializable  {
 		this.name = name;
 	}
 
-	public List<FlightMaster> getFlightMasters1() {
+	/*public List<FlightMaster> getFlightMasters1() {
 		return flightMasters1;
 	}
 
@@ -104,8 +104,8 @@ public class LocationMaster implements Serializable  {
 	public void setFlightMasters2(List<FlightMaster> flightMasters2) {
 		this.flightMasters2 = flightMasters2;
 	}
-	
-	public FlightMaster addFlightMasters1(FlightMaster flightMasters1) {
+	*/
+	/*public FlightMaster addFlightMasters1(FlightMaster flightMasters1) {
 		getFlightMasters1().add(flightMasters1);
 		flightMasters1.setLocationMaster1(this);
 
@@ -131,6 +131,6 @@ public class LocationMaster implements Serializable  {
 		flightMasters2.setLocationMaster2(null);
 
 		return flightMasters2;
-	}
+	}*/
 	
 }
