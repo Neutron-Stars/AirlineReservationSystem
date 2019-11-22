@@ -74,7 +74,7 @@ public class PersonImplementationTest {
 	
 	@Test
 	public void testGetUser()
-	{	   List<Person> ca=new ArrayList<Person>(); 
+	{	  Person ca=new Person(); 
 	ca=pDao.getUser("pqr@gmail.com");
 	for(Person per:ca)
 	{

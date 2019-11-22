@@ -4,13 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>adminTask</title>
+<title>viewFlightDetails</title>
 </head>
 <body>
-<h1>List of Tasks</h1>
-<a href="addLocation.jsp">addLocationDetails</a><br/>
-<a href="addFlight.jsp">addFlight</a><br/>
-<a href="deleteFlight.jsp">deleteFlight</a>
-<a href="viewFlight.jsp">viewAvailableFlights</a>
+<form action="adminFlightView">
+<input type="submit" value="Click here"/>
 </body>
 </html>

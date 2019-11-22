@@ -4,13 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>adminTask</title>
+<title>FlightDeletionPage</title>
 </head>
 <body>
-<h1>List of Tasks</h1>
-<a href="addLocation.jsp">addLocationDetails</a><br/>
-<a href="addFlight.jsp">addFlight</a><br/>
-<a href="deleteFlight.jsp">deleteFlight</a>
-<a href="viewFlight.jsp">viewAvailableFlights</a>
+<form action="admin_flightDelete">
+Enter the flightId to delete it:<input type="number" name="flightId"/>
+<input type="submit" value="Submit"/>
+</form>
 </body>
 </html>

@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.hibernate.SessionFactory;
 import org.junit.BeforeClass;
@@ -110,6 +111,16 @@ public class FlightMasterImplementationTest {
 		for(FlightMaster add:list)
 		{
 			System.out.println(add.getFlightId()+" "+add.getArrivalTime()+" "+add.getDepartureTime());
+		}
+	}
+	
+	@Test
+	public void getAllFlight()
+	{
+		List<FlightMaster> list1=fdao.getAll();
+		for(FlightMaster a:list1)
+		{
+			System.out.println(a.getFlightId()+" "+a.getArrivalTime()+" "+a.getFareMaster().getEconomyClass());
 		}
 	}
 

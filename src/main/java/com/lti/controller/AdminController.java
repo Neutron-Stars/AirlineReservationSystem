@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -40,6 +43,9 @@ public class AdminController {
 	@Autowired
 	@Resource(name="aservice")
 	private AdminService aservice;
+	
+	@Autowired
+	private GenericDao dao;
 	
 	@RequestMapping("/checkAdmin")
 	public String chechAdmin(@RequestParam("adminName") String adname,@RequestParam("adminPassword") String adpass,Map model)
@@ -119,18 +125,12 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/admin_flightMaster")
-	private String addL(FlightMaster flight,Map model,@RequestParam("arrivalTime") String ar,
-			@RequestParam("departureTime")String dp,
-			@RequestParam("flightTravelDate")String fdate,
-			@RequestParam("locationMasterId")Integer depId,
-			@RequestParam("locationMasterId")Integer arrId,
-			@RequestParam("fleetMasterId")Integer fleId,
-			@RequestParam("fareMasterId")Integer farId)
+	private String addL(HttpServletRequest req,Map model)
 	{
 		try
 		{
-			/*String str=req.getParameter("arrivalTime");
-		DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm", Locale.ENGLISH);
+			String str=req.getParameter("arrivalTime");
+		DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm", Locale.ENGLISH);
 		LocalDateTime date=LocalDateTime.parse(str, formatter);
 		
 		String str1=req.getParameter("departureTime");
@@ -150,20 +150,20 @@ public class AdminController {
 		
 		FleetMaster fleet=(FleetMaster)dao.Genericfetch(FleetMaster.class, fleId);
 		
-		FareMaster fare=(FareMaster)dao.Genericfetch(FareMaster.class, farId);*/
+		FareMaster fare=(FareMaster)dao.Genericfetch(FareMaster.class, farId);
 
-		
+		FlightMaster flight=new FlightMaster();
 
-		/*flight.setArrivalTime(date);
+		flight.setArrivalTime(date);
 		flight.setDepartureTime(date1);
 		flight.setFlightTravelDate(date2);
 		flight.setLocationMaster1(arrLoc);
 		flight.setLocationMaster2(depLoc);
 		flight.setFleetMaster(fleet);
-		flight.setFareMaster(fare);*/
+		flight.setFareMaster(fare);
 			
-		
-		if(aservice.addFlight(flight,ar,dp,fdate,depId,arrId,fleId,farId))
+
+		if(aservice.addFlight(flight))
 		{
 			System.out.println("done");
 		}
@@ -171,7 +171,7 @@ public class AdminController {
 		model.put("message", message);
 		return "fliSuccess";
 		}
-		catch(RuntimeException e)
+		catch(ParseException e)
 		{
 			e.printStackTrace();
 			String message="Flight addittion failure :(";
@@ -180,7 +180,42 @@ public class AdminController {
 		}
 	}
 
+	@RequestMapping("/admin_flightDelete")
+	private String deleteF(FlightMaster flight,Map model,@RequestParam("flightId")int flid)
+	{
+		try
+		{
+			if(aservice.deleteFlight(flight,flid))
+			{
+				System.out.println("done!!");
+			}
+			
+			String message="Flight deleted Succesfully!!!";
+			model.put("message", message);
+			return "fdSuccess";
+			
+		}
+		catch(RuntimeException e)
+		{
+			e.printStackTrace();
+			String message="Flight deletion failure:(";
+			model.put("message", message);
+			return "fdFailure";
+		}
+	}
 
+	
+	@RequestMapping("/adminFlightView")
+	private String viewFlight(Map model,Model model1 )
+	{
+		String message="Here are the list of available flights";
+		model.put("message", message);
+		
+		List<FlightMaster> get=aservice.getAllFlightDetail();
+		model1.addAttribute("getlist", get);
+
+		return "lookPage";
+	}
 }
 	
 

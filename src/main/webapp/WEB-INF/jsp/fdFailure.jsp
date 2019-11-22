@@ -4,13 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>adminTask</title>
+<title>Flight Deletion error page</title>
 </head>
 <body>
-<h1>List of Tasks</h1>
-<a href="addLocation.jsp">addLocationDetails</a><br/>
-<a href="addFlight.jsp">addFlight</a><br/>
-<a href="deleteFlight.jsp">deleteFlight</a>
-<a href="viewFlight.jsp">viewAvailableFlights</a>
+<h1>${message}</h1>
 </body>
 </html>

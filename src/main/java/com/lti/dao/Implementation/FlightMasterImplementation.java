@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.lti.dao.FlightMasterDao;
+import com.lti.dao.GenericDao;
 import com.lti.model.FlightMaster;
 import com.lti.model.LocationMaster;
 import com.lti.model.Person;
@@ -24,6 +25,8 @@ import com.lti.model.Person;
 public class FlightMasterImplementation implements FlightMasterDao {
 
 
+	@Autowired
+	private GenericDao dao;
 	
 	@PersistenceContext
 	private EntityManager  em;
@@ -67,12 +70,25 @@ public class FlightMasterImplementation implements FlightMasterDao {
 			return null;
 		}
 	}
-	public boolean updateRemainingSeats(FlightMaster flightMaster) {
-		return false;
+	public boolean deleteFlight(FlightMaster flightMaster,int a) {
+		try
+		{
+			dao.GenericRemove(FlightMaster.class,a);
+			return true;
+		}
+		catch(RuntimeException e)
+		{
+			e.printStackTrace();
+			return false;	
+		}
+		
 	}
 	public List<FlightMaster> getAll()
 	{
-		return null;
+		String q="select a from FlightMaster a";
+		Query q1=em.createQuery(q);
+		List<FlightMaster> list=q1.getResultList();
+		return list;
 	}
 	public FlightMaster getFlight(int flightId) {
 		return null;

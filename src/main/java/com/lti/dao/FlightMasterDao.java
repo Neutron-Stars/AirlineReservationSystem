@@ -12,7 +12,7 @@ public interface FlightMasterDao {
 
 	public boolean newFlight(FlightMaster flightMaster);
 	public List<FlightMaster> searchFlight(LocationMaster locationMaster,LocationMaster locationMaster2,Date travelDate);
-	public boolean updateRemainingSeats(FlightMaster flightMaster);
+	public boolean deleteFlight(FlightMaster flightMaster,int a);
 	public List<FlightMaster> getAll();
 	public FlightMaster getFlight(int flightId);
 }

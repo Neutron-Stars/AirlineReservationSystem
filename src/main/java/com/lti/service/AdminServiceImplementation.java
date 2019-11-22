@@ -8,8 +8,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lti.dao.FareMasterDao;
@@ -102,47 +105,38 @@ public class AdminServiceImplementation implements AdminService {
 	}
 
 	
-	public boolean addFlight(FlightMaster flight,String ar,
-																				String dp,
-																				String fdate,
-																				Integer depId,
-																				Integer arrId,
-																				Integer fleId,
-																				Integer farId){
-		try 
-		{
-		SimpleDateFormat formatter1=new SimpleDateFormat("yyyy-MM-dd");
-		DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm", Locale.ENGLISH);
-		LocalDateTime date=LocalDateTime.parse(ar, formatter);
-		LocalDateTime date1=LocalDateTime.parse(dp, formatter);
-		Date date2=formatter1.parse(fdate);
+	@InitBinder
+	public boolean addFlight(FlightMaster flight){
 		
-		LocationMaster loc=(LocationMaster)genericDao.Genericfetch(LocationMaster.class, depId);
-		LocationMaster loc1=(LocationMaster)genericDao.Genericfetch(LocationMaster.class, arrId);
-		
-		FleetMaster  fle=(FleetMaster)genericDao.Genericfetch(FleetMaster.class, fleId);
-		FareMaster  far=(FareMaster)genericDao.Genericfetch(FareMaster.class, farId);
-		
-		flight.setArrivalTime(date);
-		flight.setDepartureTime(date1);
-		flight.setFlightTravelDate(date2);
-		
-		flight.setLocationMaster1(loc);
-		flight.setLocationMaster2(loc1);
-		
+			/*	System.out.println(a);*/
+			/*Integer depId=Integer.parseInt(a1);
+			Integer arrId=Integer.parseInt(req.getParameter("locationMaster2"));
+			Integer fleId=Integer.parseInt(req.getParameter("fleetMaster"));
+			Integer farId=Integer.parseInt(req.getParameter("fareMaster"));*/
+			
+		/*	LocationMaster depLoc=(LocationMaster)genericDao.Genericfetch(LocationMaster.class, a1);
+			LocationMaster arrLoc=(LocationMaster)genericDao.Genericfetch(LocationMaster.class, b1);
+			
+			FleetMaster fleet=(FleetMaster)genericDao.Genericfetch(FleetMaster.class, c1);
+			
+			FareMaster fare=(FareMaster)genericDao.Genericfetch(FareMaster.class, d1);
+			
+			flight.setArrivalTime(date);
+			flight.setDepartureTime(date1);
+			flight.setFlightTravelDate(date2);
+			flight.setLocationMaster1(arrLoc);
+			flight.setLocationMaster2(depLoc);
+			flight.setFleetMaster(fleet);
+			flight.setFareMaster(fare);*/
 		
 	 return flightMasterDAO.newFlight(flight) ;
-		}
-		catch(ParseException e)
-		{
-			e.printStackTrace();
-			return false;
-		}
+		
 	}
 
 	
-	public boolean deleteFlight(FlightMaster flightMaster) {
-		return flightMasterDAO.updateRemainingSeats(flightMaster);
+	public boolean deleteFlight(FlightMaster flightMaster,int a) {
+		flightMaster=(FlightMaster)genericDao.Genericfetch(FlightMaster.class,a);
+		return flightMasterDAO.deleteFlight(flightMaster,a);
 	}
 
 	public List<FlightMaster> getAllFlightDetail() {

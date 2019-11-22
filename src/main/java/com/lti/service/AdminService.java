@@ -2,6 +2,8 @@ package com.lti.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.lti.model.FareMaster;
 import com.lti.model.FleetMaster;
 import com.lti.model.FlightMaster;
@@ -28,7 +30,7 @@ public interface AdminService {
 		public List<LocationMaster> getAllLocationDetail();
 		
 		//service related to FlightMaster
-		public boolean addFlight(FlightMaster flightMaster,String a,String b,String c,Integer aa,Integer bb,Integer cc,Integer dd);
-		public boolean deleteFlight(FlightMaster flightMaster);
+		public boolean addFlight(FlightMaster flightMaster);
+		public boolean deleteFlight(FlightMaster flightMaster,int a);
 		public List<FlightMaster> getAllFlightDetail();
 }
