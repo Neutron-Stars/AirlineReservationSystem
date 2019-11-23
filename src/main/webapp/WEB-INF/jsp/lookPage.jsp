@@ -27,7 +27,7 @@ table, th, td {
 			<th> DepartureLoc </th>
 			<th> ArrivalLoc </th>
 			<th> FleetId </th>
-			<th> FareId </th>
+			<th> Fare(Buis,Eco,Pre) </th>
 			
 			<c:forEach var="listValue" items="${getlist}">
 			</tr>
@@ -38,8 +38,8 @@ table, th, td {
 			<td>${listValue.flightTravelDate}</td>
 			<td>${listValue.locationMaster1.name}</td>
 			<td>${listValue.locationMaster2.name}</td>
-			<td>${listValue.fleetMaster.fleetMasterId}</td>
-			<td>${listValue.fareMaster.fareMasterId}</td>
+			<td>${listValue.fleetMaster.model} ${listValue.fleetMaster.code}</td>
+			<td>${listValue.fareMaster.businessClass} ${listValue.fareMaster.economyClass} ${listValue.fareMaster.premiumClass}</td>
 			</tr>
 				
 				
