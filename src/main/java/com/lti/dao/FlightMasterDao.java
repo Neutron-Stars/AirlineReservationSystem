@@ -15,4 +15,5 @@ public interface FlightMasterDao {
 	public boolean deleteFlight(FlightMaster flightMaster,int a);
 	public List<FlightMaster> getAll();
 	public FlightMaster getFlight(int flightId);
+	public boolean updateRemainingSeats(FlightMaster flightMaster);
 }

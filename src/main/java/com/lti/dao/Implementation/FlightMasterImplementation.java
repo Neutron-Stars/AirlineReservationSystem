@@ -91,7 +91,33 @@ public class FlightMasterImplementation implements FlightMasterDao {
 		return list;
 	}
 	public FlightMaster getFlight(int flightId) {
-		return null;
+		FlightMaster flight=new FlightMaster();
+		try
+		{
+			flight=(FlightMaster)dao.Genericfetch(FlightMaster.class, flightId);
+			return flight;
+		
+		}
+		catch(RuntimeException e)
+		{
+			e.printStackTrace();
+			return flight;
+		}
+	}
+	
+	public boolean updateRemainingSeats(FlightMaster flightMaster)
+	{
+		try
+		{
+			em.merge(flightMaster);
+			return true;
+		}
+		catch(RuntimeException e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+		
 	}
 }
 

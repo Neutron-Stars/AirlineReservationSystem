@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import com.lti.dao.GenericDao;
 import com.lti.dao.LocationMasterDao;
 import com.lti.model.FlightMaster;
 import com.lti.model.LocationMaster;
@@ -26,6 +28,9 @@ public class LocationMasterImplementation implements LocationMasterDao {
 	
 	@PersistenceContext
 	private EntityManager entitymanager;
+	
+	@Autowired
+	private GenericDao dao;
 	
 	@Transactional
 	public boolean createLocation(LocationMaster locationMaster1)
@@ -52,9 +57,22 @@ public class LocationMasterImplementation implements LocationMasterDao {
 		return false;
 	}
 	public LocationMaster getLocation(int locationMasterId)	{
-		return null;
+		LocationMaster loc=new LocationMaster();
+		try
+		{
+			loc=(LocationMaster)dao.Genericfetch(LocationMaster.class,locationMasterId);
+		return loc;
+		}
+		catch(RuntimeException e)
+		{
+			e.printStackTrace();
+			return loc;
+		}
 	}
 	public List<LocationMaster> getAllLocation()	{
-		return null;
+		String q="select a from LocationMaster a";
+		Query q1=entitymanager.createQuery(q);
+		List<LocationMaster> list=q1.getResultList();
+		return list;
 	}
 }

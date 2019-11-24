@@ -3,6 +3,7 @@
   <display-name>AirlineReservation</display-name>
   <welcome-file-list>
     <welcome-file>/login.jsp</welcome-file>
+    <welcome-file>/navigation.jsp</welcome-file>
   </welcome-file-list>
   
   <context-param>

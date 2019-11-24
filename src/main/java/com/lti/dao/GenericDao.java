@@ -27,6 +27,7 @@ public class GenericDao {
 	entityManager.merge(obj);
 	}
 	
+
 	public Object Genericfetch(Class clazz,Object pk)
 	{
 		Object obj=entityManager.find(clazz,pk);

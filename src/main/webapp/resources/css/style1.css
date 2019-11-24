@@ -1,0 +1,16 @@
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+.column a:hover {
+  float: left;
+ background-color: #ddd;
+  color: black;
+  /* width: 33.33%;
+  padding: 15px; */
+}
+ .topnav a:hover {
+ float: left;
+} 

@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>adminTask</title>
-<link href="resources/styles.css" rel="stylesheet">
+<link href="resources/css/styles.css" rel="stylesheet">
 </head>
 <body>
 <h1>List of Tasks</h1>

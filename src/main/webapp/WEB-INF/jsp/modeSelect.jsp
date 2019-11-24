@@ -4,14 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>HomePage</title>
+<title>Mode selection</title>
 </head>
 <body>
-Welcome back ${ sessionScope.person.fName }
-<h1>${message}</h1>
-
-<form action="navigation" method="get">
-<input type="submit" value="Search for Flights"/>
-</form>
+<p>${msg}</p> 
+	<br>
+	Or else go to <a href="navigation.jsp">Home page</a>
+	<a href="payment.jsp">Card Debit/Credit</a>
+	<a href="payment.jsp">NetBanking</a>
 </body>
 </html>

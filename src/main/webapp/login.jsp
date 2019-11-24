@@ -15,6 +15,9 @@ Password:<input type="password" name="password"/><br/>
 </form> 
 
 For admin Login click here<a href="adminLogin.jsp">AdminLogin</a>
+Search for flights:
+<form action="navigation" method="get">
+<input type="submit" value="Search for Flights"/>
 
 </body>
 </html>

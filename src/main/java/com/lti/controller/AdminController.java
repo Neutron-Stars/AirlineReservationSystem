@@ -85,7 +85,7 @@ public class AdminController {
 			LocationMaster loc=new LocationMaster();
 	
 			System.out.println("hit 3");
-			loc.setLocationMasterId(1643);
+			loc.setLocationMasterId(1840);
 			loc.setCode(code);
 			loc.setAirportName(airportName);
 			loc.setCountry(country);

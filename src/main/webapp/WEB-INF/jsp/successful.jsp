@@ -4,14 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>HomePage</title>
+<title>Success page</title>
 </head>
 <body>
-Welcome back ${ sessionScope.person.fName }
-<h1>${message}</h1>
-
-<form action="navigation" method="get">
-<input type="submit" value="Search for Flights"/>
-</form>
+<h3>Login successful!!!</h3>
+<a href="search">Click</a> | <a href="logout.jsp">Logout</a>
 </body>
 </html>

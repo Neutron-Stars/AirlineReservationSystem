@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.lti.dao.Dao1;
 import com.lti.dao.FlightMasterDao;
 import com.lti.dao.GenericDao;
 import com.lti.dao.Implementation.FlightMasterImplementation;
@@ -35,7 +36,8 @@ public class FlightMasterImplementationTest {
 	@PersistenceContext
 	private EntityManager em;
 
-	
+	/*@Autowired
+	private GenericDao dao;*/
 	
 	
 	@BeforeClass
@@ -96,8 +98,9 @@ public class FlightMasterImplementationTest {
 	@Test
 	public void searchFlight()
 	{
-		GenericDao dao=new GenericDao();
+		Dao1 dao=new Dao1();
 		 LocationMaster loc=(LocationMaster)dao.Genericfetch(LocationMaster.class, 1239);
+		 System.out.println(loc);
 		
 		 LocationMaster loc1=(LocationMaster)dao.Genericfetch(LocationMaster.class, 1240);
 		 
@@ -106,7 +109,7 @@ public class FlightMasterImplementationTest {
 		 
 		 
 		List<FlightMaster> list=new ArrayList<FlightMaster>();
-		list=fdao.searchFlight(loc, loc1, flight.getFlightTravelDate());
+		list=fdao.searchFlight(loc, loc1, (java.sql.Date)flight.getFlightTravelDate());
 		
 		for(FlightMaster add:list)
 		{

@@ -4,14 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>HomePage</title>
+<title>noResult Page</title>
 </head>
 <body>
-Welcome back ${ sessionScope.person.fName }
-<h1>${message}</h1>
-
-<form action="navigation" method="get">
+	No flight Data found
+	<form action="navigation" method="get">
 <input type="submit" value="Search for Flights"/>
-</form>
 </body>
 </html>
