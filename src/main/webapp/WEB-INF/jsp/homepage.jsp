@@ -13,5 +13,12 @@ Welcome back ${ sessionScope.person.fName }
 <form action="navigation" method="get">
 <input type="submit" value="Search for Flights"/>
 </form>
+
+
+<div align="right">
+For logging out Click here
+<form  action="logout"><input type="submit" value="logout"></form>
+</div>
+
 </body>
 </html>

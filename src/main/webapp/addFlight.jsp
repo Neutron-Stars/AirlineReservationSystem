@@ -10,7 +10,8 @@
 <form action="admin_flightMaster">
 flightArrivalTime:<input type="datetime-local" name="arrivalTime" placeholder="YYYY-MM-DD hh:mm:ss"/><br/><br/>
 flightDepartureTime:<input type="datetime-local" name="departureTime" placeholder="YYYY-MM-DD hh:mm:ss"/><br/><br/>
-flightTravelDate:<input type="date" name="flightTravelDate" placeholder="YYYY-MM-DD hh:mm:ss"/><br/><br/>
+flightStartDate:<input type="date" name="flightTravelDate" placeholder="YYYY-MM-DD hh:mm:ss"/><br/><br/>
+flightEndDate:<input type="date" name="flightEndDate" placeholder="YYYY-MM-DD hh:mm:ss"/><br/><br/>
 depLoc:<input type="number" name="locationMaster1"><br/><br/>
 arrLoc:<input type="number" name="locationMaster2"><br/><br/>
 Enter Fleet Id:<input type="number" name="fleetMaster"><br/><br/>

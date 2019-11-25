@@ -27,7 +27,7 @@ public class BookingImplementationTest {
 		Bookings book=new Bookings();
 //		book.setBookingDate("2019-12-02 18:48:05.123");
 		//Booking booking=new Booking();
-		book.setBookingId(3009);
+		book.setBookingId(3010);
 		book.setBookingNumber("AZ12");
 		book.setTotalCost(7000);
 		

@@ -2,6 +2,7 @@ package com.lti.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.lti.dao.GenericDao;
 import com.lti.model.Bookings;
 import com.lti.model.FlightMaster;
 import com.lti.model.Passengers;
@@ -36,6 +38,9 @@ public class BookingController {
 	@Autowired
 	private BookingService bservice;
 	
+	@Autowired
+	private GenericDao dao;
+	
 	/*@Autowired
 	private BookingService bservice;*/
 	
@@ -51,6 +56,9 @@ public class BookingController {
 		
 		per.setPersonId(1007);
 		
+		int id=per.getPersonId();
+		per=(Person)dao.Genericfetch(Person.class, id);
+		
 		String flightid=req.getParameter("flightId");
 		
 		String classType=req.getParameter("classType");
@@ -62,11 +70,14 @@ public class BookingController {
 		int flightId=Integer.parseInt(flightid);
 		fligh.setFlightId(flightId);
 		
-		book.setBookingId(268943);
+		
+		book.setBookingId(1003);
+	/*	book=(Bookings)dao.Genericfetch(Bookings.class, book.getBookingId());*/
 		book.setSeatClass(classType);
 		book.setSeatsBooked(seat);
 		book.setTravelDate(fligh.getFlightTravelDate());
-		book.setBookingNumber("235454");
+		book.setBookingNumber("1113");
+		
 		
 		int total=seat*fservice.getFare(flightId, classType);
 		System.out.println(total);
@@ -76,7 +87,9 @@ public class BookingController {
 		for(int i=0;i<seat;i++)
 		{
 			String userName=req.getParameter("username"+i);
+			System.out.println(userName);
 			String middleName=req.getParameter("middlename"+i);
+			System.out.println(middleName);
 			String lastName=req.getParameter("lastname"+i);
 			String gender=req.getParameter("gender"+i);
 			String mealPreferences=req.getParameter("meal"+i);
@@ -84,7 +97,7 @@ public class BookingController {
 			String age=req.getParameter("age"+i);
 			String passportNumber=req.getParameter("passport"+i);
 			
-			pass.setPassengerId(6000+1);
+			pass.setPassengerId(6000+10);
 			pass.setFirstName(userName);
 			pass.setMiddleName(middleName);
 			pass.setLastName(lastName);
@@ -93,6 +106,8 @@ public class BookingController {
 			pass.setPassengerType(passengerType);
 			pass.setPassportNumber(passportNumber);
 			pass.setAge(Integer.parseInt(age));
+			
+			/*pass.setBooking(book);*/
 			passengers.add(pass);
 			
 			try
@@ -110,10 +125,12 @@ public class BookingController {
 	}
 		
 		@RequestMapping("modeSelect")
-		public ModelAndView modeSelect(HttpServletRequest request,HttpServletResponse response)
+		public String modeSelect(Map model,HttpServletRequest request,HttpServletResponse response)
 		{
 			System.out.println(request);
-			return new ModelAndView("modeSelect");
+			String message="Please select the mode of payement";
+			model.put("msg", message);
+			return  "modeSelect";
 		}
 		
 		@RequestMapping("payment")
@@ -127,29 +144,36 @@ public class BookingController {
 		{
 			ModelAndView model=new ModelAndView("donePayment");
 			System.out.println(model);
+			
 			model.addObject("passenger",passengers);
+			System.out.println(model);
 			model.addObject("booking",book);
+			System.out.println(model);
 			return model;
 		}
 		
-		@RequestMapping("paymentFailure")
-		public ModelAndView fail(HttpServletRequest request,HttpServletResponse response)
+		@RequestMapping("/paymentFailure")
+		public String fail(Map model,HttpServletRequest request,HttpServletResponse response)
 		{
-			return new ModelAndView("modeSelect","msg","Payment Failed try again");
+			String msg="payement failed try again";
+			model.put("msg", msg);
+			return "modeSelect";
 		}
 		
 
-		@RequestMapping("paymentPass")
-		public ModelAndView succ(HttpServletRequest request,HttpServletResponse response)
+		@RequestMapping("/paymentPass")
+		public String succ(Map model,HttpServletRequest request,HttpServletResponse response)
 		{
 
 			if(bservice.bookTicket(book, passengers))
 			{
-				return new ModelAndView("successful","msg","from booking");
+				String msg="Booking done succesfully";
+				model.put("msg", msg);
+				return "successful";
 			}
 			else
 			{
-				return new ModelAndView("unsuccessful");
+				return "unsuccessful";
 			}
 		}
 		

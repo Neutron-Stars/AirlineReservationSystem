@@ -38,7 +38,7 @@ public class FlightMasterImplementation implements FlightMasterDao {
 		try
 		{
 			System.out.println("hit ok1");
-			em.merge(flightMaster);
+			em.persist(flightMaster);
 			return true;
 		}
 		catch(RuntimeException e)
@@ -70,6 +70,8 @@ public class FlightMasterImplementation implements FlightMasterDao {
 			return null;
 		}
 	}
+	
+	@Transactional
 	public boolean deleteFlight(FlightMaster flightMaster,int a) {
 		try
 		{
@@ -90,6 +92,8 @@ public class FlightMasterImplementation implements FlightMasterDao {
 		List<FlightMaster> list=q1.getResultList();
 		return list;
 	}
+	
+	@Transactional
 	public FlightMaster getFlight(int flightId) {
 		FlightMaster flight=new FlightMaster();
 		try
@@ -105,6 +109,7 @@ public class FlightMasterImplementation implements FlightMasterDao {
 		}
 	}
 	
+	@Transactional
 	public boolean updateRemainingSeats(FlightMaster flightMaster)
 	{
 		try

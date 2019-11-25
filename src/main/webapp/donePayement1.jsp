@@ -4,15 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mode selection</title>
+<title>Payement Failure</title>
 </head>
 <body>
-<p>${msg}</p> 
-<a href="payment.jsp">Card Debit/Credit</a>
-	<a href="payment.jsp">NetBanking</a>
-	<br/>
-	<br>
-	Or else go to <a href="navigation.jsp">Home page</a>
-	
+<form action="paymentFailure">
+<input type="submit " value="submit">
 </body>
 </html>

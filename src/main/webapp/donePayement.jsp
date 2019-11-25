@@ -8,5 +8,26 @@
 </head>
 <body>
 <h1>Payement done</h1>
+<!-- <script type="text/javascript">
+function validate() {
+	if(${session.Scope}==false)
+		{
+		prompt("login");
+		return false;
+		}
+	else
+		return true;
+}
+</script> -->
+
+<% 
+if(session.getAttribute("person1")==null)
+{
+	response.sendRedirect("login.jsp");
+}
+%>
+<form action="paymentPass">
+<input type="submit" value="submit" />  
+</form>
 </body>
 </html>

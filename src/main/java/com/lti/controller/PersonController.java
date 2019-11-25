@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,11 +31,12 @@ public class PersonController {
 	public String checkLogin(
 							@RequestParam("email") String email, 
 							@RequestParam("password") String password,
-							Map model) {
+							Map model,HttpSession session) {
 
 		System.out.println(password);
 		try {
 			Person per = pservice.checkLogin(email, password);
+			Person per1 = pservice.checkLogin(email, password);
 			model.put("person", per);
 			// String fname;
 			// List<Person> list=new ArrayList<Person>();
@@ -42,7 +45,7 @@ public class PersonController {
 			System.out.println("Session Saved..");
 			String message1 = "Log in Success!!!";
 			model.put("message", message1);
-			
+			session.setAttribute("person1", per1);
 			return "homepage";
 
 		} catch (RuntimeException e) {
@@ -61,5 +64,23 @@ public class PersonController {
 			System.out.println(id + " " + name);
 		}
 		return new ModelAndView("homepage", "total", list);
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(Map model,HttpServletRequest req)
+	{
+			System.out.println("logging out.....");
+			HttpSession session=req.getSession();
+			Person per=(Person)session.getAttribute("person1");
+			System.out.println(per.getfName());
+			
+		
+			
+			String message="You have Succesfully logged out Mr./Ms.";
+			model.put("msg", message);
+			model.put("person1", per);
+			session.invalidate();
+			
+			return "logout";
 	}
 }

@@ -7,7 +7,7 @@
 <title>Success page</title>
 </head>
 <body>
-<h3>Login successful!!!</h3>
+<h3>Booking successful!!!</h3>
 <a href="search">Click</a> | <a href="logout.jsp">Logout</a>
 </body>
 </html>

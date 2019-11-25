@@ -25,6 +25,7 @@ public class PassengerImplementation implements PassengerDao {
 	@Autowired
 	private GenericDao dao;
 	
+	@Transactional
 	public boolean newPassenger(Passengers passenger)
 	{
 		try

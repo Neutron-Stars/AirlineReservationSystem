@@ -3,8 +3,15 @@ package com.lti.test;
 import static org.junit.Assert.*;
 
 import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -53,7 +60,7 @@ public class FlightMasterImplementationTest {
 	@Test
 	public void test() {
 		
-	GenericDao dao=new GenericDao();
+Dao1 dao=new Dao1();
 		 LocationMaster loc=(LocationMaster)dao.Genericfetch(LocationMaster.class, 1239);
 //	 LocationMaster loc=em.find(LocationMaster.class,1252);
 		System.out.println(loc);
@@ -84,6 +91,7 @@ public class FlightMasterImplementationTest {
 		flightMaster.setFleetMaster(fleetMaster);
 		System.out.println(Time.valueOf("10:65:00"));
 		flightMaster.setFlightTravelDate(java.sql.Date.valueOf("2019-11-19"));
+		flightMaster.setFlightEndDate(java.sql.Date.valueOf("2019-11-19"));
 //		flightMaster.setArrivalTime(java.sql.Time.valueOf("11:50:00"));
 		flightMaster.setArrivalTime(LocalDateTime.of(2019, 11, 19, 11, 30));
 		flightMaster.setDepartureTime(LocalDateTime.of(2019, 11, 19, 2, 00));
@@ -126,5 +134,94 @@ public class FlightMasterImplementationTest {
 			System.out.println(a.getFlightId()+" "+a.getArrivalTime()+" "+a.getFareMaster().getEconomyClass());
 		}
 	}
+	
+	@Test
+	public void displayDatesTest()
+	{
+		FlightMaster flight=new FlightMaster();
+		String s1="2014-05-01";
+		String s2="2014-05-30";
+		
+		LocalDate startdate=LocalDate.parse(s1);
+		LocalDate enddate1=LocalDate.parse(s2);
+		
+		List<LocalDate> totdates=new ArrayList<LocalDate>();
+		while(!startdate.isAfter(enddate1))
+		{
+			totdates.add(startdate);
+			startdate=startdate.plusDays(1);
+			System.out.println(startdate);
+		}
+	}
+		
+		@Test
+		public void displayDatesInTest()
+		{
+			FlightMaster flight=new FlightMaster();
+			String s1="2014-05-01";
+			String s2="2014-05-30";
+			
+			try
+			{
+			SimpleDateFormat formatter1=new SimpleDateFormat("yyyy-MM-dd");
+			Date stdate=formatter1.parse(s1);
+			Date enddate=formatter1.parse(s2);
+			
+			List<Date> dates=new ArrayList<Date>();
+			Calendar calendar=new GregorianCalendar();
+			calendar.setTime(stdate);
+			
+			while(calendar.getTime().before(enddate))
+			{
+				Date result=calendar.getTime();
+				dates.add(result);
+				calendar.add(Calendar.DATE,1 );
+			}
+			
+			System.out.println(dates);
+
+			}
+			
+			catch(ParseException e)
+			{
+				e.printStackTrace();
+			}
+		
+	}
+		
+		@Test
+		public void testDatesBetween()
+		{
+			List<Date> dates = new ArrayList<Date>();
+
+			String str_date ="12/10/2010";
+			String end_date ="16/10/2010";
+
+			try
+			{
+			SimpleDateFormat formatter ; 
+
+			formatter = new SimpleDateFormat("dd/MM/yyyy");
+			Date  startDate = (Date)formatter.parse(str_date); 
+			Date  endDate = (Date)formatter.parse(end_date);
+			long interval = 24*1000 * 60 * 60; // 1 hour in millis
+			long endTime =endDate.getTime() ; // create your endtime here, possibly using Calendar or Date
+			long curTime = startDate.getTime();
+			while (curTime <= endTime) {
+			    dates.add(new Date(curTime));
+			    curTime += interval;
+			}
+			for(int i=0;i<dates.size();i++){
+			    Date lDate =(Date)dates.get(i);
+			    String ds = formatter.format(lDate);    
+			    System.out.println(" Date is ..." + ds);
+			}
+			}
+			
+			catch(ParseException e)
+			{
+				e.printStackTrace();
+			}
+		}
 
 }

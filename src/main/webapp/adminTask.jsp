@@ -11,7 +11,7 @@
 <h1>List of Tasks</h1>
 <a href="addLocation.jsp">addLocationDetails</a><br/>
 <a href="addFlight.jsp">addFlight</a><br/>
-<a href="deleteFlight.jsp">deleteFlight</a>
+<a href="deleteFlight.jsp">deleteFlight</a><br/>
 <a href="viewFlight.jsp">viewAvailableFlights</a>
 </body>
 </html>

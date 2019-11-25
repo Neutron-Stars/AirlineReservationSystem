@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>done page</title>
 </head>
 <body>
-
+<h1>Payement done</h1>
+<form action="paymentPass">
+<input type="submit " value="submit">
+</form>
 </body>
 </html>

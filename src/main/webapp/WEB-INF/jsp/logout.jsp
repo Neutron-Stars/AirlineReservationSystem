@@ -4,15 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mode selection</title>
+<title>Logout page</title>
 </head>
 <body>
-<p>${msg}</p> 
-<a href="payment.jsp">Card Debit/Credit</a>
-	<a href="payment.jsp">NetBanking</a>
-	<br/>
-	<br>
-	Or else go to <a href="navigation.jsp">Home page</a>
-	
+${msg} ${person1.fName}
+<jsp:include page="/login.jsp"></jsp:include>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>Payement page</title>
 </head>
 <body>
-<a href="donePayment.jsp?status=succ">Payment success</a>
-<a href="donePayment.jsp?status=fail">Payment Failure</a>
+<a href="donePayement.jsp">Proceed for booking</a><br/>
+<a href="donePayement1.jsp">Want to cancel the booking,Click here</a>
 </body>
 </html>

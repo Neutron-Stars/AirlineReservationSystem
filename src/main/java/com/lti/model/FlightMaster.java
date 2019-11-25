@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,9 +44,23 @@ public class FlightMaster implements Serializable {
 	@Column(name="DepartureTime")
 	private LocalDateTime departureTime;
 
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name="FlightTravelDate")
 	private Date flightTravelDate;
+	
+	
+	@Temporal(TemporalType.DATE)
+	@Column()
+	private Date flightEndDate;
+	
+	
+	
+	
+
+	public Date getFlightEndDate() {
+		return flightEndDate;
+	}
 
 	@Column(name="RemBuisSeat")
 	private int remainingBusinessSeats;
@@ -88,6 +103,10 @@ public class FlightMaster implements Serializable {
 
 	public void setFlightId(int flightId) {
 		this.flightId = flightId;
+	}
+
+	public void setFlightEndDate(Date flightEndDate) {
+		this.flightEndDate = flightEndDate;
 	}
 
 
