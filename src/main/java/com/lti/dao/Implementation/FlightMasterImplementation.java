@@ -38,7 +38,7 @@ public class FlightMasterImplementation implements FlightMasterDao {
 		try
 		{
 			System.out.println("hit ok1");
-			em.persist(flightMaster);
+			em.merge(flightMaster);
 			return true;
 		}
 		catch(RuntimeException e)

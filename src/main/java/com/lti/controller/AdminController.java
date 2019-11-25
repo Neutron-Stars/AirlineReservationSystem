@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -195,7 +196,13 @@ public class AdminController {
 			System.out.println("done");
 		}*/
 	}
-	
+		System.out.println("heloo"+list.size());
+		
+		for(FlightMaster flightMaster : list)
+		{
+			if(aservice.addFlight(flightMaster))
+				System.out.println("done");
+		}
 
 		
 		String message="Flight added Succesfully!!!";
