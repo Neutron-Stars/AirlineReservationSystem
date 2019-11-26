@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -32,11 +33,23 @@ public class Bookings implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id 
+	
 	private int bookingId;
 
-	private Timestamp bookingDate;
+	private LocalDate bookingDate;
 
 	private String bookingNumber;
+	
+	/*private String Status;*/
+
+/*	public String getStatus() {
+		return Status;
+	}
+
+
+	public void setStatus(String status) {
+		Status = status;
+	}*/
 
 	@Column(name="SeatClass")
 	private String seatClass;
@@ -76,12 +89,15 @@ public class Bookings implements Serializable{
 	}
 
 
-	public Timestamp getBookingDate() {
+	
+
+
+	public LocalDate getBookingDate() {
 		return bookingDate;
 	}
 
 
-	public void setBookingDate(Timestamp bookingDate) {
+	public void setBookingDate(LocalDate bookingDate) {
 		this.bookingDate = bookingDate;
 	}
 

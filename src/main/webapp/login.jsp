@@ -19,5 +19,10 @@ Search for flights:
 <form action="navigation" method="get">
 <input type="submit" value="Search for Flights"/>
 
+<div align="right">
+New User? Register here
+<a href="registerPage.jsp">Click here</a>
+</div>
+
 </body>
 </html>

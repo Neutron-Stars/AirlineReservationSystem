@@ -5,13 +5,19 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.http.HttpRequest;
 
 import com.lti.dao.PersonDao;
 import com.lti.model.Person;
+import com.lti.service.PersonService;
 
 public class PersonImplementationTest {
 
@@ -26,6 +32,8 @@ public class PersonImplementationTest {
 	
 	PersonDao pDao=ctx.getBean(PersonDao.class);
 	
+	@Autowired
+	private PersonService pservice;
 	
 	@Test
 	public void testPerson() {
@@ -80,5 +88,14 @@ public class PersonImplementationTest {
 	{
 		System.out.println(per.getfName()+" "+per.getGender()+" "+per.getMobileNumber());
 	}
+	}
+	
+	@Test
+	public void getPerson()
+	{
+		
+		
+		
+		
 	}
 }

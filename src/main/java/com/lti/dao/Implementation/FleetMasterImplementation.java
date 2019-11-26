@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.lti.dao.FleetMasterDao;
+import com.lti.dao.GenericDao;
 /*import com.lti.model.FareMaster;*/
 import com.lti.model.FleetMaster;
 
@@ -21,7 +22,8 @@ public class FleetMasterImplementation implements FleetMasterDao {
 	@PersistenceContext
 	private EntityManager em;
 	
-	
+	@Autowired
+	private GenericDao dao;
 
 	@Transactional
 	public boolean createFleet(FleetMaster fleetMaster)
@@ -51,7 +53,16 @@ public class FleetMasterImplementation implements FleetMasterDao {
 	}
 	public FleetMaster getFleet(int fleetId)
 	{
-		return null;
+		FleetMaster fleetMaster = new FleetMaster();
+		try
+		{
+		fleetMaster = (FleetMaster)dao.Genericfetch(FleetMaster.class, fleetId);
+		return fleetMaster;
+		}
+		catch(RuntimeException e)
+		{
+			return fleetMaster;
+		}
 	}
 	public List<FleetMaster> getAllFleet()
 	{

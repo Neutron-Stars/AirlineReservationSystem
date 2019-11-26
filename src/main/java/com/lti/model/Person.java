@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 
  * @author Neutron Stars
@@ -33,7 +35,7 @@ public class Person implements Serializable {
 	@Id
 	private int personId;
 	
-	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date DOB;
 	
 	@Column(name="emailAdrress")

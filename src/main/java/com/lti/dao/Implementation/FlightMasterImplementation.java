@@ -115,6 +115,7 @@ public class FlightMasterImplementation implements FlightMasterDao {
 	{
 		try
 		{
+			System.out.println("hit ok");
 			em.merge(flightMaster);
 			return true;
 		}

@@ -20,5 +20,21 @@ For logging out Click here
 <form  action="logout"><input type="submit" value="logout"></form>
 </div>
 
+<div align="center">
+For Viewing Bookings Click here
+<form action="viewbooking">
+Enter Booking Id:<input type="number"  name="bookingId" />
+<input type="submit" value="click">
+</form>
+</div>
+
+<div align="center">
+For Deleting Bookings Click here
+<form action="deleteBooking">
+Enter Booking Id:<input type="number"  name="bookingId" />
+<input type="submit" value="click">
+</form>
+</div>
+
 </body>
 </html>

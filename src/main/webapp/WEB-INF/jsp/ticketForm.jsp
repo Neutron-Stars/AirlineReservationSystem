@@ -27,6 +27,7 @@ var i=0;
 	
 	<input type="number" id="seat" name="seat" value="1"><br>
 	<input type="hidden" name="flightId" value="${flight.flightId }">
+<!-- 	<input type="text" name="Status" placeholder="status"> -->
 	<select name="classType">
 		<option value="economy">Economy</option>
 		<option value="premium">Premium</option>
@@ -59,7 +60,7 @@ var i=0;
 				document.getElementById('seat').value=parseInt(d)+1;
 				i=i+1;
 				document.getElementById('formMore').style.visibility='visible';
-				document.getElementById('formMore').innerHTML+='<br><select name="gender"><option value="economy">Economy</option><option value="premium">Premium</option><option value="buisness">Buisness</option></select><input type="text" name="username'+i+'" placeholder="First Name"><input type="text" name="middlename'+i+'" placeholder="Middle Name"><input type="text" name="lastname'+i+'" placeholder="Last Name"><input type="number" name="age'+i+'" placeholder="Enter Age"><input  type="text" name="passport'+i+'" placeholder="Enter passport"><select name="gender'+i+'"><option value="M">Male</option><option value="F">Female</option></select><select name="passengerType0"><option value="adult">Adult</option><option value="child">Child</option></select><select name="meal0"><option value="veg">VEG</option><option value="nvg">NON-VEG</option></select>';	}
+				document.getElementById('formMore').innerHTML+='<br><select name="gender"><option value="economy">Economy</option><option value="premium">Premium</option><option value="buisness">Buisness</option></select><input type="text" name="username'+i+'" placeholder="First Name"><input type="text" name="middlename'+i+'" placeholder="Middle Name"><input type="text" name="Status'+i+'" placeholder="Status"><input type="text" name="lastname'+i+'" placeholder="Last Name"><input type="number" name="age'+i+'" placeholder="Enter Age"><input  type="text" name="passport'+i+'" placeholder="Enter passport"><select name="gender'+i+'"><option value="M">Male</option><option value="F">Female</option></select><select name="passengerType0"><option value="adult">Adult</option><option value="child">Child</option></select><select name="meal0"><option value="veg">VEG</option><option value="nvg">NON-VEG</option></select>';	}
 	</script>
 	<input type="submit" value="submit" name="submit"/>
 
