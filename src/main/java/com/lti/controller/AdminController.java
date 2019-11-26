@@ -2,9 +2,13 @@ package com.lti.controller;
 
 import static org.junit.Assert.assertTrue;
 
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -134,82 +138,90 @@ public class AdminController {
 		{
 			List<Date> dates=new ArrayList<Date>();
 			
+			
+			
 			String str=req.getParameter("arrivalTime");
-		DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm", Locale.ENGLISH);
-		LocalDateTime date=LocalDateTime.parse(str, formatter);
+			LocalTime date=LocalTime.parse(str, DateTimeFormatter.ofPattern("HH:mm:ss"));
+		
 		
 		String str1=req.getParameter("departureTime");
-		LocalDateTime date1=LocalDateTime.parse(str1, formatter);
+	LocalTime	date1= LocalTime.parse(str1, DateTimeFormatter.ofPattern("HH:mm:ss"));
 		
-		SimpleDateFormat formatter1=new SimpleDateFormat("yyyy-MM-dd");
-		Date date2=formatter1.parse(req.getParameter("flightTravelDate"));
+//		SimpleDateFormat formatter1=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+	
+		/*Date date2=formatter1.parse(req.getParameter("flightTravelDate"));
 		System.out.println(date2);
 		Date date3=formatter1.parse(req.getParameter("flightEndDate"));
-		System.out.println(date3);
+		System.out.println(date3);*/
 		
 		
 		Integer depId=Integer.parseInt(req.getParameter("locationMaster1"));
 		Integer arrId=Integer.parseInt(req.getParameter("locationMaster2"));
 		Integer fleId=Integer.parseInt(req.getParameter("fleetMaster"));
 		Integer farId=Integer.parseInt(req.getParameter("fareMaster"));
-		
 		LocationMaster depLoc=(LocationMaster)dao.Genericfetch(LocationMaster.class, depId);
 		LocationMaster arrLoc=(LocationMaster)dao.Genericfetch(LocationMaster.class, arrId);
-		
 		FleetMaster fleet=(FleetMaster)dao.Genericfetch(FleetMaster.class, fleId);
-		
 		FareMaster fare=(FareMaster)dao.Genericfetch(FareMaster.class, farId);
 		
 		long interval = 24*1000 * 60 * 60;
-		long endTime =date3.getTime(); // create your endtime here, possibly using Calendar or Date
-		long curTime = date2.getTime();
+	/*	long endTime =date3.getTime(); // create your endtime here, possibly using Calendar or Date
+		long curTime = date2.getTime();*/
 		
-		System.out.println(endTime);
+		/*System.out.println(endTime);
 		System.out.println(curTime);
 		
 		while (curTime <= endTime) {
 		    dates.add(new Date(curTime));
 		    curTime += interval;
-		}
+		}*/
 	
-
+		LocalDate stdate=LocalDate.parse(req.getParameter("flightTravelDate"));
+		LocalDate enddate=LocalDate.parse(req.getParameter("flightEndDate"));
+		
+		List<LocalDate> localist=new ArrayList<LocalDate>();
+		
+		ZoneId def=ZoneId.systemDefault();
 		
 		FlightMaster flight=new FlightMaster();
 	List<FlightMaster> list=new ArrayList<FlightMaster>();
-		for(Date idate:dates) {
-		    String ds = formatter1.format(idate);    
-		/*		System.out.println(dates.size());*/
-			    System.out.println(" Date is ..." + ds);
+	
+	while(!stdate.isAfter(enddate))
+	{
+		localist.add(stdate);
+		
+		stdate=stdate.plusDays(1);
+     	System.out.println(stdate);
+		  
+//		Date date3=Date.from(stdate.atStartOfDay(def).toInstant());
+		
 		flight.setArrivalTime(date);
 		flight.setDepartureTime(date1);
-		flight.setFlightTravelDate(idate);
-		flight.setFlightEndDate(idate);
+		
+	
+		flight.setFlightTravelDate(stdate);
+
+		flight.setFlightEndDate(enddate);
+	
+		
 		flight.setLocationMaster1(arrLoc);
 		flight.setLocationMaster2(depLoc);
 		flight.setFleetMaster(fleet);
 		flight.setFareMaster(fare);
-		list.add(flight);
-		System.out.println(list.size());
 		
-		/*		if(aservice.addFlight(flight))
-		{
+		if(aservice.addFlight(flight))
 			System.out.println("done");
-		}*/
-	}
-		System.out.println("heloo"+list.size());
-		
-		for(FlightMaster flightMaster : list)
-		{
-			if(aservice.addFlight(flightMaster))
-				System.out.println("done");
-		}
-
+		//list.add(flight);
+		//System.out.println(list.size());
+	}	
+	
+	
 		
 		String message="Flight added Succesfully!!!";
 		model.put("message", message);
 		return "fliSuccess";
 		}
-		catch(ParseException e)
+		catch(RuntimeException e)
 		{
 			e.printStackTrace();
 			String message="Flight addittion failure :(";

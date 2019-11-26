@@ -90,11 +90,11 @@ Dao1 dao=new Dao1();
 		flightMaster.setLocationMaster2(loc1);
 		flightMaster.setFleetMaster(fleetMaster);
 		System.out.println(Time.valueOf("10:65:00"));
-		flightMaster.setFlightTravelDate(java.sql.Date.valueOf("2019-11-19"));
-		flightMaster.setFlightEndDate(java.sql.Date.valueOf("2019-11-19"));
+		/*flightMaster.setFlightTravelDate(java.sql.Date.valueOf("2019-11-19"));
+		flightMaster.setFlightEndDate(java.sql.Date.valueOf("2019-11-19"));*/
 //		flightMaster.setArrivalTime(java.sql.Time.valueOf("11:50:00"));
-		flightMaster.setArrivalTime(LocalDateTime.of(2019, 11, 19, 11, 30));
-		flightMaster.setDepartureTime(LocalDateTime.of(2019, 11, 19, 2, 00));
+		/*flightMaster.setArrivalTime(LocalDateTime.of(2019, 11, 19, 11, 30));
+		flightMaster.setDepartureTime(LocalDateTime.of(2019, 11, 19, 2, 00));*/
 		flightMaster.setFareMaster(fareMaster);
 		
 		System.out.println("Hit 3");
@@ -117,7 +117,7 @@ Dao1 dao=new Dao1();
 		 
 		 
 		List<FlightMaster> list=new ArrayList<FlightMaster>();
-		list=fdao.searchFlight(loc, loc1, (java.sql.Date)flight.getFlightTravelDate());
+		list=fdao.searchFlight(loc, loc1, (LocalDate)flight.getFlightTravelDate());
 		
 		for(FlightMaster add:list)
 		{
@@ -178,7 +178,7 @@ Dao1 dao=new Dao1();
 				calendar.add(Calendar.DATE,1 );
 			}
 			
-			System.out.println(dates);
+			System.out.println(formatter1.format(dates));
 
 			}
 			

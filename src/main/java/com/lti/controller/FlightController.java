@@ -3,6 +3,7 @@ package com.lti.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -39,8 +40,9 @@ public class FlightController {
 		
 		
 		SimpleDateFormat formatter1=new SimpleDateFormat("yyyy-MM-dd");
-		Date date2=formatter1.parse(req.getParameter("dateOfJourney"));
+		LocalDate date2=LocalDate.parse(req.getParameter("dateOfJourney"));
 		
+				
 		int src=Integer.parseInt(source);
 		int dest=Integer.parseInt(destination);
 		/*Date dt=Date.valueOf(date);*/
@@ -57,7 +59,7 @@ public class FlightController {
 		else
 			return new ModelAndView("noResult");
 		}
-		catch(ParseException e)
+		catch(RuntimeException e)
 		{
 			e.printStackTrace();
 			return new ModelAndView("noResult");

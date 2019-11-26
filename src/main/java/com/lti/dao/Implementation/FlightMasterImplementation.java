@@ -1,6 +1,7 @@
 package com.lti.dao.Implementation;
 
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -48,7 +49,7 @@ public class FlightMasterImplementation implements FlightMasterDao {
 		}
 		
 	}
-	public List<FlightMaster> searchFlight(LocationMaster locationMaster,LocationMaster locationMaster2,Date travelDate)
+	public List<FlightMaster> searchFlight(LocationMaster locationMaster,LocationMaster locationMaster2,LocalDate travelDate)
 	{
 		FlightMaster flight=new FlightMaster();
 		try {

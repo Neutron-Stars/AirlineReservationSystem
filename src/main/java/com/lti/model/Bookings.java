@@ -2,6 +2,7 @@ package com.lti.model;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -46,9 +47,9 @@ public class Bookings implements Serializable{
 	@Column(name="TotalCost")
 	private int totalCost;
 
-	@Temporal(TemporalType.DATE)
+	
 	@Column(name="TravelDate")
-	private Date  travelDate;
+	private LocalDate  travelDate;
 
 	//bi-directional many-to-one association to Person
 	@ManyToOne
@@ -125,12 +126,12 @@ public class Bookings implements Serializable{
 	}
 
 
-	public Date getTravelDate() {
+	public LocalDate getTravelDate() {
 		return travelDate;
 	}
 
 
-	public void setTravelDate(Date travelDate) {
+	public void setTravelDate(LocalDate travelDate) {
 		this.travelDate = travelDate;
 	}
 

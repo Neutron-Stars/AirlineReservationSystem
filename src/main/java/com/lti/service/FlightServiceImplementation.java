@@ -1,5 +1,6 @@
 package com.lti.service;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class FlightServiceImplementation implements FlightService {
 	@Autowired
 	private FareMasterDao fadao=new FareMasterImplementation();
 	
-	public List<FlightMaster> getSearchDetails(int sourceId,int destinationId,Date date)
+	public List<FlightMaster> getSearchDetails(int sourceId,int destinationId,LocalDate date)
 	{
 		LocationMaster source=ldao.getLocation(sourceId);
 		System.out.println(source);

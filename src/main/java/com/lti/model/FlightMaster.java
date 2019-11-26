@@ -2,7 +2,9 @@ package com.lti.model;
 
 import java.io.Serializable;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -39,26 +41,25 @@ public class FlightMaster implements Serializable {
 	private int flightId;
 
 	@Column(name="ArrivalTime")
-	private LocalDateTime arrivalTime;
+	private LocalTime arrivalTime;
 
 	@Column(name="DepartureTime")
-	private LocalDateTime departureTime;
+	private LocalTime departureTime;
 
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name="FlightTravelDate")
-	private Date flightTravelDate;
+		@Column(name="FlightTravelDate")
+	private LocalDate flightTravelDate;
 	
 	
-	@Temporal(TemporalType.DATE)
+
 	@Column()
-	private Date flightEndDate;
+	private LocalDate flightEndDate;
 	
 	
 	
 	
 
-	public Date getFlightEndDate() {
+	public LocalDate getFlightEndDate() {
 		return flightEndDate;
 	}
 
@@ -105,32 +106,33 @@ public class FlightMaster implements Serializable {
 		this.flightId = flightId;
 	}
 
-	public void setFlightEndDate(Date flightEndDate) {
+	public void setFlightEndDate(LocalDate flightEndDate) {
 		this.flightEndDate = flightEndDate;
 	}
 
 
-	public LocalDateTime getArrivalTime() {
+	
+	public LocalTime getArrivalTime() {
 		return arrivalTime;
 	}
 
-	public void setArrivalTime(LocalDateTime arrivalTime) {
+	public void setArrivalTime(LocalTime arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
 
-	public LocalDateTime getDepartureTime() {
+	public LocalTime getDepartureTime() {
 		return departureTime;
 	}
 
-	public void setDepartureTime(LocalDateTime departureTime) {
+	public void setDepartureTime(LocalTime departureTime) {
 		this.departureTime = departureTime;
 	}
 
-	public Date getFlightTravelDate() {
+	public LocalDate getFlightTravelDate() {
 		return flightTravelDate;
 	}
 
-	public void setFlightTravelDate(Date flightTravelDate) {
+	public void setFlightTravelDate(LocalDate flightTravelDate) {
 		this.flightTravelDate = flightTravelDate;
 	}
 
