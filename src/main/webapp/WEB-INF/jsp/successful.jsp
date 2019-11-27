@@ -8,6 +8,6 @@
 </head>
 <body>
 <h3>Booking successful!!!</h3>
-<a href="search">Click</a> | <a href="logout.jsp">Logout</a>
+<a href="navigation.jsp">Click</a> | <a href="logout.jsp">Logout</a>
 </body>
 </html>

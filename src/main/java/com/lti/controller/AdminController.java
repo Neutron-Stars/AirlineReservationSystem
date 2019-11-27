@@ -19,6 +19,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,7 @@ import com.lti.model.FareMaster;
 import com.lti.model.FleetMaster;
 import com.lti.model.FlightMaster;
 import com.lti.model.LocationMaster;
+import com.lti.model.Person;
 import com.lti.service.AdminService;
 import com.lti.service.PersonService;
 
@@ -54,15 +56,17 @@ public class AdminController {
 	private GenericDao dao;
 	
 	@RequestMapping("/checkAdmin")
-	public String chechAdmin(@RequestParam("adminName") String adname,@RequestParam("adminPassword") String adpass,Map model)
+	public String chechAdmin(@RequestParam("adminName") String adname,@RequestParam("adminPassword") String adpass,Map model,HttpSession session)
 	{
 		try
 		{
 			Admin ad=pservice.checkAdmin(adname, adpass);
+			Admin ad1=pservice.checkAdmin(adname, adpass);
 			model.put("admin",ad );
 			
 			System.out.println("saved Session");
 			String message="Hello Sir :)";
+			session.setAttribute("admin1", ad1);
 			model.put("message", message);
 			
 			return "adminPage";
@@ -265,6 +269,24 @@ public class AdminController {
 		model1.addAttribute("getlist", get);
 
 		return "lookPage";
+	}
+	
+	@RequestMapping("/logout1")
+	public String logout(Map model,HttpServletRequest req)
+	{
+			System.out.println("logging out.....");
+			HttpSession session=req.getSession();
+			Admin admin=(Admin)session.getAttribute("admin1");
+			System.out.println(admin.getAdminName());
+			
+		
+			
+			String message="You have Succesfully logged out Sir.";
+			model.put("msg", message);
+			model.put("admin1", admin);
+			session.invalidate();
+			
+			return "adminLogin";
 	}
 }
 	

@@ -81,12 +81,12 @@ public class BookingController {
 		fligh.setFlightId(flightId);
 		
 		
-		book.setBookingId(3027);
+		book.setBookingId(3029);
 	/*	book=(Bookings)dao.Genericfetch(Bookings.class, book.getBookingId());*/
 		book.setSeatClass(classType);
 		book.setSeatsBooked(seat);
 		book.setTravelDate(fligh.getFlightTravelDate());
-		book.setBookingNumber("1139");
+		book.setBookingNumber("1141");
 		book.setBookingDate(LocalDate.now());
 	/*	book.setStatus(status);*/
 		
@@ -111,7 +111,7 @@ public class BookingController {
 			String age=req.getParameter("age"+i);
 			String passportNumber=req.getParameter("passport"+i);
 			
-			pass.setPassengerId(6000+14);
+			pass.setPassengerId(6000+16);
 			pass.setFirstName(userName);
 			pass.setMiddleName(middleName);
 			pass.setLastName(lastName);

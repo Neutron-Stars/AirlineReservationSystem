@@ -18,6 +18,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 
  * @author NeutronStars
@@ -60,7 +62,7 @@ public class Bookings implements Serializable{
 	@Column(name="TotalCost")
 	private int totalCost;
 
-	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(name="TravelDate")
 	private LocalDate  travelDate;
 

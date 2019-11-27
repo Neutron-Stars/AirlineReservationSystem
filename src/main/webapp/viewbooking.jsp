@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FlightDelete</title>
+    <title>Booking</title>
     <link rel="stylesheet" href="resources/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
     
@@ -17,15 +17,23 @@
                         <div id="branding">
                             <h1><span class="highlight">GoHigh</span> Services</h1>
                 </div>
-            
+            <nav>
+                <div>
+                    <ul>
+                            <li ><a href="frontPage.jsp">Home</a></li>
+                            <li class="current"><a href="#">Status</a></li>
+                         <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+            </nav>
         </header>
 
         <div class="div3">
        
-                <h1 id="h1">FLIGHT DELETE STATUS</h1>
-                    <label class="label">FlightId</label><br>
-                    <form action="admin_flightDelete">
-                    <input class="input-box" type="number" name="flightId" placeholder="Enter Flight ID" required><br>
+                <h1 id="h1">BOOKING STATUS</h1>
+                    <label class="label">BookingID</label><br>
+                    <form action="viewbooking">
+                    <input class="input-box" type="number" name="bookingId" placeholder="Enter Booking ID" required><br>
         			       <button class="button" type="submit" value="Submit">SUBMIT</button>
         			</form>
         </div>

@@ -4,25 +4,55 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>login Page</title>
+ <title>GoHigh | LOGIN</title>
+    <link rel="icon" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
 </head>
 <body>
-<form action="checkLogin" method="post">  
 
-Email:<input type="text" name="email"/><br/>  
-Password:<input type="password" name="password"/><br/>  
-<input type="submit" value="login"/>  
+ <header>
+                <div class="container">
+                        <div id="branding">
+                            <h1><span class="highlight">GoHigh</span> Services</h1>
+                </div>
+            <nav>
+                <div>
+                    <ul>
+                            <li ><a href="frontPage.jsp">Home</a></li>
+                            
+                            <li><a href="registerPage.jsp">SignUp</a></li>
+                            <li><a href="navigation.jsp">Search</a></li>
+                            <li><a href="adminLogin.jsp">AdminLogin</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+<div class="div1">
+       
+        <h1 id="h1">Sign IN</h1>
+<form action="checkLogin" method="post">  
+            <label class="label">Usermail</label><br>
+            <input class="input-box" type="text" name="email" placeholder="Enter Email" required><br>
+
+            <label class="label">Password</label><br>
+            <input class="input-box" type="password" name="password" placeholder="Enter Password" required><br>
+
+        <button class="button" type="submit" value="Submit">SUBMIT</button>
 </form> 
 
-For admin Login click here<a href="adminLogin.jsp">AdminLogin</a>
-Search for flights:
-<form action="navigation" method="get">
-<input type="submit" value="Search for Flights"/>
+  <hr>
+        <p class="or">OR</p>
+        <p>Create Account<p>
+            <button class="button" value="Register" onclick=location.href="registerPage.jsp">REGISTER</button>
+    </div>
 
-<div align="right">
-New User? Register here
-<a href="registerPage.jsp">Click here</a>
-</div>
+
+ <footer>
+        <p>GoHigh Airline Services, Copyright &copy; 2019</p>
+    </footer>
+
+
 
 </body>
 </html>

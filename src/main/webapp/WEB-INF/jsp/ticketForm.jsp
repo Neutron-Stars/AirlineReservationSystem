@@ -1,18 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-        <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript">
-var i=0;
-</script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ticket Form Page</title>
+ <title>GoHigh | LOGIN</title>
+    <link rel="icon" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
 </head>
 <body>
+
+ <header>
+                <div class="container">
+                        <div id="branding">
+                            <h1><span class="highlight">GoHigh</span> Services</h1>
+                </div>
+        </header>
+
 <h2>Please Fill this Ticket</h2>
 <div>
 		<label>FlightMaster ID <p> ${flight.flightId}</p></label>
@@ -21,7 +27,7 @@ var i=0;
 		<label>Destination Location <p> ${flight.locationMaster2.name}</p></label>
 	</div>
 	
-	<div id="jj">
+	
 <button onclick="add()" id="old_button1">Add</button> 
 	<form action="bookTicket" method="post">
 	
@@ -65,5 +71,15 @@ var i=0;
 	<input type="submit" value="submit" name="submit"/>
 
 	</form>
+
+	
+
+
+ <footer>
+        <p>GoHigh Airline Services, Copyright &copy; 2019</p>
+    </footer>
+
+
+
 </body>
 </html>

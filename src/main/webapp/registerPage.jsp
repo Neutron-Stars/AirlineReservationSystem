@@ -4,7 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+ <title>GoHigh | REGISTER</title>
+    <link rel="icon" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
  <script type="javascript">
         function fun(){
             document.getElementById("hid").value=document.getElementById("gender").value;
@@ -20,7 +23,7 @@
     <nav>
         <div>
             <ul>
-                    <li ><a href="homepage.html">Home</a></li>
+                    <li ><a href="frontPage.jsp">Home</a></li>
                     <li><a href="#">Status</a></li>
                     <li class="current"><a href="register.html">SignUp</a></li>
                     <li><a href="#">Search</a></li>

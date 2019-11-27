@@ -7,7 +7,7 @@
 <title>Failed Page</title>
 </head>
 <body>
-${message}
+<p style="color:white;font-weight: bold;">${message}</p>
 <jsp:include page="/login.jsp"></jsp:include>
 </body>
 </html>

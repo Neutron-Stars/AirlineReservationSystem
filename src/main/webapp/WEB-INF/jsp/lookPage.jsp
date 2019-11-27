@@ -5,16 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>List of available Flights</title>
-<style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-</style>
+ <title>GoHigh | Welcome</title>
+    <link rel="icon" type="image/jpg" href="resources/images/Icon.jpg">
+    <link rel="stylesheet" type="text/css" href="resources/css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/style2.css">
+    <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
+    
 </head>
 <body>
-<h1>${message }</h1>
+    <header>
+            <div class="container">
+                    <div id="branding">
+                        <h1><span class="highlight">GoHigh</span> Services</h1>
+            </div>
+        
+    </header>
+    <section id="showcase">
+    <div class="div4">
+      	<h1>${message }</h1>
 <c:if test="${not empty getlist}">
 
 		<ul>
@@ -48,5 +56,10 @@ table, th, td {
 		</ul>
 
 	</c:if>
+	</div>
+    </section>
+    <footer>
+        <p>GoHigh Airline Services, Copyright &copy; 2019</p>
+    </footer>
 </body>
 </html>
